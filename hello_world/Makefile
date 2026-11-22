@@ -1,10 +1,11 @@
 CC ?= gcc
-SDCC_BIN := tools/sdcc-4.6.0/bin
+PROJECT_ROOT := ..
+SDCC_BIN := $(PROJECT_ROOT)/tools/sdcc-4.6.0/bin
 SDCC := $(SDCC_BIN)/sdcc
 ASZ80 := $(SDCC_BIN)/sdasz80
 SDOBJOCOPY := $(SDCC_BIN)/sdobjcopy
 
-Z80_CORE := github__superzazu__z80
+Z80_CORE := $(PROJECT_ROOT)/z80
 BUILD := build
 SIM := $(BUILD)/z80sim
 
@@ -21,7 +22,7 @@ $(SIM): sim/main.c $(Z80_CORE)/z80.c $(Z80_CORE)/z80.h | $(BUILD)
 
 $(BUILD)/crt0.rel: src/crt0.s | $(BUILD)
 	cp src/crt0.s $(BUILD)/crt0.s
-	cd $(BUILD) && ../$(ASZ80) -xlos -g crt0.s && rm -f crt0.s
+	$(ASZ80) -xlos -g -o $(BUILD)/crt0.rel $(BUILD)/crt0.s && rm -f $(BUILD)/crt0.s
 
 $(BUILD)/hello.rel: src/hello.c | $(BUILD)
 	$(SDCC) $(SDCCFLAGS) -c -o $@ $<
