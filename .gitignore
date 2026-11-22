@@ -1,0 +1,11 @@
+build/
+tools/
+github__*/
+*.ihx
+*.lk
+*.map
+*.sym
+*.lst
+*.rel
+*.bin
+*.asm
