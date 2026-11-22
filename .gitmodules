@@ -1,0 +1,6 @@
+[submodule "xtc"]
+	path = xtc
+	url = ./xtc
+[submodule "z80"]
+	path = z80
+	url = ./z80
