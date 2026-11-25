@@ -149,8 +149,8 @@ def build_graph(dtype: str):
 
 def schedule_matmul(sch) -> None:
     """Même schedule que test_xtc_i32.py : strip-mine i/j + interchange."""
-    sch.strip_mine("i", {"i1": 2})
-    sch.strip_mine("j", {"j1": 16})
+    sch.strip_mine("i", {"i1": 4})
+    sch.strip_mine("j", {"j1": 1})
     sch.interchange(["k", "i", "j", "i1", "j1"])
 
 
