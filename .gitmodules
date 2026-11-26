@@ -1,6 +1,6 @@
 [submodule "xtc"]
 	path = xtc
-	url = ./xtc
+	url = https://github.com/xtc-tools/xtc.git
 [submodule "z80"]
 	path = z80
-	url = ./z80
+	url = https://github.com/superzazu/z80.git
